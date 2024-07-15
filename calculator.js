@@ -95,10 +95,12 @@ btnMenu.addEventListener("click", (event) => {
         case "coma":
             firstOperand += ".";
             result.textContent = firstOperand;
+            document.querySelector("#coma").disabled = true;
             break;
         case "plus":
             operator = "+";
             firstOperandReady = true;
+            document.querySelector("#coma").disabled = false;
             break;
         case "minus":
             if(firstOperand==="") {
@@ -108,15 +110,18 @@ btnMenu.addEventListener("click", (event) => {
             } else {
             operator = "-";
             firstOperandReady = true;
+            document.querySelector("#coma").disabled = false;
             break;
             }
         case "times":
             operator = "*";
             firstOperandReady = true;
+            document.querySelector("#coma").disabled = false;
             break;
         case "divide":
             operator = "/";
             firstOperandReady = true;
+            document.querySelector("#coma").disabled = false;
             break;
         case "clear":
             firstOperand = "";
@@ -180,6 +185,7 @@ btnMenu.addEventListener("click", (event) => {
         case "coma":
             secondOperand += ".";
             result.textContent = secondOperand;
+            document.querySelector("#coma").disabled = true;
             break;
         case "clear":
             clearValues();
