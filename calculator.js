@@ -14,9 +14,10 @@ function divide(a, b) {
     return a / b;
 }
 
-let firstOperand;
-let secondOperand;
-let operator;
+let firstOperand = "";
+let firstOperandReady = false;
+let secondOperand = "";
+let operator = "";
 
 function operate(num1, num2, operation) {
     switch(operation) {
@@ -34,3 +35,129 @@ function operate(num1, num2, operation) {
             break;
     }
 }
+
+const result = document.querySelector("#result");
+
+let btnMenu = document.querySelector(".button-space");
+btnMenu.addEventListener("click", (event) => {
+    let target = event.target;
+    
+    if(firstOperandReady === false) {
+    switch(target.id){
+        case "one":
+            firstOperand += "1";
+            result.textContent = firstOperand;
+            break;
+        case "two":
+            firstOperand += "2";
+            result.textContent = firstOperand;
+            break;
+        case "three":
+            firstOperand += "3";
+            result.textContent = firstOperand;
+            break;
+        case "four":
+            firstOperand += "4";
+            result.textContent = firstOperand;
+            break;
+        case "five":
+            firstOperand += "5";
+            result.textContent = firstOperand;
+            break;
+        case "six":
+            firstOperand += "6";
+            result.textContent = firstOperand;
+            break;
+        case "seven":
+            firstOperand += "7";
+            result.textContent = firstOperand;
+            break;
+        case "eight":
+            firstOperand += "8";
+            result.textContent = firstOperand;
+            break;
+        case "nine":
+            firstOperand += "9";
+            result.textContent = firstOperand;
+            break;
+        case "zero":
+            firstOperand += "0";
+            result.textContent = firstOperand;
+            break;
+        case "plus":
+            operator = "+";
+            firstOperandReady = true;
+            break;
+        case "minus":
+            operator = "-";
+            firstOperandReady = true;
+            break;
+        case "times":
+            operator = "*";
+            firstOperandReady = true;
+            break;
+        case "divide":
+            operator = "/";
+            firstOperandReady = true;
+            break;
+        case "clear":
+            firstOperand = "";
+            secondOperand = "";
+            firstOperandReady = false;
+            operator = ""
+            result.textContent = "";
+            break;
+        
+    }} else if(firstOperandReady === true) {
+    switch(target.id){
+        case "one":
+            secondOperand += "1";
+            result.textContent = secondOperand;
+            break;
+        case "two":
+            secondOperand += "2";
+            result.textContent = secondOperand;
+            break;
+        case "three":
+            secondOperand += "3";
+            result.textContent = secondOperand;
+            break;
+        case "four":
+            secondOperand += "4";
+            result.textContent = secondOperand;
+            break;
+        case "five":
+            secondOperand += "5";
+            result.textContent = secondOperand;
+            break;
+        case "six":
+            secondOperand += "6";
+            result.textContent = secondOperand;
+            break;
+        case "seven":
+            secondOperand += "7";
+            result.textContent = secondOperand;
+            break;
+        case "eight":
+            secondOperand += "8";
+            result.textContent = secondOperand;
+            break;
+        case "nine":
+            secondOperand += "9";
+            result.textContent = secondOperand;
+            break;
+        case "zero":
+            secondOperand += "0";
+            result.textContent = secondOperand;
+            break;
+        case "clear":
+            firstOperand = "";
+            secondOperand = "";
+            firstOperandReady = false;
+            operator = ""
+            result.textContent = "";
+            break;
+    }}
+        
+    
+})
