@@ -20,29 +20,13 @@ function clearValues() {
     firstOperandReady = false;
     operator = ""
     result.textContent = "";
+    document.querySelector("#coma").disabled = false;
 }
 
 let firstOperand = "";
 let firstOperandReady = false;
 let secondOperand = "";
 let operator = "";
-
-function operate(num1, num2, operation) {
-    switch(operation) {
-        case adding:
-            return add(num1, num2);
-            break;
-        case subtraction:
-            return subtract(num1, num2);
-            break;
-        case multiplication:
-            return multiply(num1, num2);
-            break;
-        case division:
-            return divide(num1, num2);
-            break;
-    }
-}
 
 const result = document.querySelector("#result");
 
@@ -124,11 +108,7 @@ btnMenu.addEventListener("click", (event) => {
             document.querySelector("#coma").disabled = false;
             break;
         case "clear":
-            firstOperand = "";
-            secondOperand = "";
-            firstOperandReady = false;
-            operator = ""
-            result.textContent = "";
+            clearValues();
             break;
         case "backspace":
             let slicedFirstOperand = firstOperand.slice(0, -1); 
