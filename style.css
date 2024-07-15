@@ -32,6 +32,13 @@ body {
     align-items: center;
     justify-content: center;
     border: 5px ridge black;
+    align-items: center;
+    justify-content: end;
+}
+
+#result {
+    margin: 10px;
+    font-size: 50px;
 }
 
 .button-space {
