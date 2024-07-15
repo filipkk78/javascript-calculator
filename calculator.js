@@ -190,8 +190,25 @@ btnMenu.addEventListener("click", (event) => {
             secondOperand += "e-2";
             break;
         case "equals":
-
-
-
+            a = parseFloat(firstOperand);
+            b = parseFloat(secondOperand); 
+            switch(operator) {
+                case "+":
+                    result.textContent = add(a, b);
+                    firstOperandReady = true;
+                    break;
+                case "-":
+                    result.textContent = subtract(a, b);
+                    firstOperandReady = true;
+                    break;
+                case "*":
+                    result.textContent = multiply(a, b);
+                    firstOperandReady = true;
+                    break;
+                case "/":  
+                    result.textContent = divide(a, b);
+                    firstOperandReady = true;
+                    break;
+            }
     }} 
 })
