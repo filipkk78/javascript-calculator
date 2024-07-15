@@ -84,14 +84,24 @@ btnMenu.addEventListener("click", (event) => {
             firstOperand += "0";
             result.textContent = firstOperand;
             break;
+        case "coma":
+            firstOperand += ".";
+            result.textContent = firstOperand;
+            break;
         case "plus":
             operator = "+";
             firstOperandReady = true;
             break;
         case "minus":
+            if(firstOperand==="") {
+                firstOperand += "-"
+                result.textContent = firstOperand;
+                break;
+            } else {
             operator = "-";
             firstOperandReady = true;
             break;
+            }
         case "times":
             operator = "*";
             firstOperandReady = true;
@@ -106,6 +116,15 @@ btnMenu.addEventListener("click", (event) => {
             firstOperandReady = false;
             operator = ""
             result.textContent = "";
+            break;
+        case "backspace":
+            let slicedFirstOperand = firstOperand.slice(0, -1); 
+            firstOperand = slicedFirstOperand;
+            result.textContent = firstOperand;
+            break;
+        case "percent":
+            result.textContent = `${firstOperand}%`;
+            firstOperand += "e-2";
             break;
         
     }} else if(firstOperandReady === true) {
@@ -150,6 +169,10 @@ btnMenu.addEventListener("click", (event) => {
             secondOperand += "0";
             result.textContent = secondOperand;
             break;
+        case "coma":
+            secondOperand += ".";
+            result.textContent = secondOperand;
+            break;
         case "clear":
             firstOperand = "";
             secondOperand = "";
@@ -157,7 +180,18 @@ btnMenu.addEventListener("click", (event) => {
             operator = ""
             result.textContent = "";
             break;
-    }}
-        
-    
+        case "backspace":
+            let slicedSecondOperand = secondOperand.slice(0, -1); 
+            secondOperand = slicedSecondOperand;
+            result.textContent = secondOperand;
+            break;
+        case "percent":
+            result.textContent = `${secondOperand}%`;
+            secondOperand += "e-2";
+            break;
+        case "equals":
+
+
+
+    }} 
 })
