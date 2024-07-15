@@ -14,6 +14,14 @@ function divide(a, b) {
     return a / b;
 }
 
+function clearValues() {
+    firstOperand = "";
+    secondOperand = "";
+    firstOperandReady = false;
+    operator = ""
+    result.textContent = "";
+}
+
 let firstOperand = "";
 let firstOperandReady = false;
 let secondOperand = "";
@@ -174,11 +182,7 @@ btnMenu.addEventListener("click", (event) => {
             result.textContent = secondOperand;
             break;
         case "clear":
-            firstOperand = "";
-            secondOperand = "";
-            firstOperandReady = false;
-            operator = ""
-            result.textContent = "";
+            clearValues();
             break;
         case "backspace":
             let slicedSecondOperand = secondOperand.slice(0, -1); 
@@ -189,26 +193,50 @@ btnMenu.addEventListener("click", (event) => {
             result.textContent = `${secondOperand}%`;
             secondOperand += "e-2";
             break;
+        case "plus":
+            operator = "+";
+            firstOperandReady = true;
+            break;
+        case "minus":
+            operator = "-";
+            firstOperandReady = true;
+            break;
+        case "times":
+            operator = "*";
+            firstOperandReady = true;
+            break;
+        case "divide":
+            operator = "/";
+            firstOperandReady = true;
+            break;
         case "equals":
             a = parseFloat(firstOperand);
             b = parseFloat(secondOperand); 
             switch(operator) {
                 case "+":
-                    result.textContent = add(a, b);
-                    firstOperandReady = true;
+                    equalsTo = add(a, b);
                     break;
                 case "-":
-                    result.textContent = subtract(a, b);
-                    firstOperandReady = true;
+                    equalsTo = subtract(a, b);
                     break;
                 case "*":
-                    result.textContent = multiply(a, b);
-                    firstOperandReady = true;
+                    equalsTo = multiply(a, b);
                     break;
-                case "/":  
-                    result.textContent = divide(a, b);
-                    firstOperandReady = true;
+                case "/":
+                    equalsTo = divide(a, b);
                     break;
+            }
+            if(equalsTo === Infinity) {
+                alert("You can't divide by 0");
+                clearValues();
+                break;
+            } else {
+            result.textContent = equalsTo;
+            firstOperand = equalsTo;
+            firstOperandReady = true;
+            secondOperand = "";
+            operator = "";
+            break;
             }
     }} 
 })
