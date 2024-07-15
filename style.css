@@ -72,3 +72,7 @@ button:hover {
 .darker {
     background-color: rgb(41, 40, 40);  
 }
+
+.longer {
+    flex-basis: 49%;
+}
