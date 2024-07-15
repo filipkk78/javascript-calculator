@@ -23,6 +23,10 @@ function clearValues() {
     document.querySelector("#coma").disabled = false;
 }
 
+function updateDisplay(operand) {
+    result.textContent = operand.toString().substring(0, 12);
+}
+
 let firstOperand = "";
 let firstOperandReady = false;
 let secondOperand = "";
@@ -38,47 +42,47 @@ btnMenu.addEventListener("click", (event) => {
     switch(target.id){
         case "one":
             firstOperand += "1";
-            result.textContent = firstOperand;
+            updateDisplay(firstOperand);
             break;
         case "two":
             firstOperand += "2";
-            result.textContent = firstOperand;
+            updateDisplay(firstOperand);
             break;
         case "three":
             firstOperand += "3";
-            result.textContent = firstOperand;
+            updateDisplay(firstOperand);
             break;
         case "four":
             firstOperand += "4";
-            result.textContent = firstOperand;
+            updateDisplay(firstOperand);
             break;
         case "five":
             firstOperand += "5";
-            result.textContent = firstOperand;
+            updateDisplay(firstOperand);
             break;
         case "six":
             firstOperand += "6";
-            result.textContent = firstOperand;
+            updateDisplay(firstOperand);
             break;
         case "seven":
             firstOperand += "7";
-            result.textContent = firstOperand;
+            updateDisplay(firstOperand);
             break;
         case "eight":
             firstOperand += "8";
-            result.textContent = firstOperand;
+            updateDisplay(firstOperand);
             break;
         case "nine":
             firstOperand += "9";
-            result.textContent = firstOperand;
+            updateDisplay(firstOperand);
             break;
         case "zero":
             firstOperand += "0";
-            result.textContent = firstOperand;
+            updateDisplay(firstOperand);
             break;
         case "coma":
             firstOperand += ".";
-            result.textContent = firstOperand;
+            updateDisplay(firstOperand);
             document.querySelector("#coma").disabled = true;
             break;
         case "plus":
@@ -89,7 +93,7 @@ btnMenu.addEventListener("click", (event) => {
         case "minus":
             if(firstOperand==="") {
                 firstOperand += "-"
-                result.textContent = firstOperand;
+                updateDisplay(firstOperand);
                 break;
             } else {
             operator = "-";
@@ -113,10 +117,10 @@ btnMenu.addEventListener("click", (event) => {
         case "backspace":
             let slicedFirstOperand = firstOperand.slice(0, -1); 
             firstOperand = slicedFirstOperand;
-            result.textContent = firstOperand;
+            updateDisplay(firstOperand);
             break;
         case "percent":
-            result.textContent = `${firstOperand}%`;
+            result.textContent = `${firstOperand}%`.substring(0, 12);
             firstOperand += "e-2";
             break;
         
@@ -124,47 +128,47 @@ btnMenu.addEventListener("click", (event) => {
     switch(target.id){
         case "one":
             secondOperand += "1";
-            result.textContent = secondOperand;
+            updateDisplay(secondOperand);
             break;
         case "two":
             secondOperand += "2";
-            result.textContent = secondOperand;
+            updateDisplay(secondOperand);
             break;
         case "three":
             secondOperand += "3";
-            result.textContent = secondOperand;
+            updateDisplay(secondOperand);
             break;
         case "four":
             secondOperand += "4";
-            result.textContent = secondOperand;
+            updateDisplay(secondOperand);
             break;
         case "five":
             secondOperand += "5";
-            result.textContent = secondOperand;
+            updateDisplay(secondOperand);
             break;
         case "six":
             secondOperand += "6";
-            result.textContent = secondOperand;
+            updateDisplay(secondOperand);
             break;
         case "seven":
             secondOperand += "7";
-            result.textContent = secondOperand;
+            updateDisplay(secondOperand);
             break;
         case "eight":
             secondOperand += "8";
-            result.textContent = secondOperand;
+            updateDisplay(secondOperand);
             break;
         case "nine":
             secondOperand += "9";
-            result.textContent = secondOperand;
+            updateDisplay(secondOperand);
             break;
         case "zero":
             secondOperand += "0";
-            result.textContent = secondOperand;
+            updateDisplay(secondOperand);
             break;
         case "coma":
             secondOperand += ".";
-            result.textContent = secondOperand;
+            updateDisplay(secondOperand);
             document.querySelector("#coma").disabled = true;
             break;
         case "clear":
@@ -173,10 +177,10 @@ btnMenu.addEventListener("click", (event) => {
         case "backspace":
             let slicedSecondOperand = secondOperand.slice(0, -1); 
             secondOperand = slicedSecondOperand;
-            result.textContent = secondOperand;
+            updateDisplay(secondOperand);
             break;
         case "percent":
-            result.textContent = `${secondOperand}%`;
+            result.textContent = `${secondOperand}%`.substring(0, 12);
             secondOperand += "e-2";
             break;
         case "plus":
@@ -217,7 +221,7 @@ btnMenu.addEventListener("click", (event) => {
                 clearValues();
                 break;
             } else {
-            result.textContent = equalsTo;
+            result.textContent = equalsTo.toString().substring(0, 12);
             firstOperand = equalsTo;
             firstOperandReady = true;
             secondOperand = "";
